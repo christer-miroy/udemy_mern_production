@@ -1,0 +1,19 @@
+import { useAppContext } from "../context/appContext"
+import { Navigate } from "react-router-dom"
+import Loading from '../components/Loading'
+
+const ProtectedRoute = ({children}) => {
+    const {
+        user,
+        userLoading
+    } = useAppContext()
+
+    if (userLoading) return <Loading /> //show loading spinner if userLoading is true
+    
+    /* check if {user} exists */
+    if (!user) {
+        return <Navigate to='/landing' />
+    }
+    return children
+}
+export default ProtectedRoute
