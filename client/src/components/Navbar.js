@@ -38,7 +38,6 @@ const Navbar = () => {
             <FaUserCircle />
             {/* dynamic display of user name */}
             {user?.name}
-            {user?.lastName}
             <FaCaretDown />
           </button>
           {/* logout button */}
